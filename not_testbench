@@ -1,0 +1,26 @@
+module Testbench_NOT_Gate;
+
+    // Declare testbench variables
+    reg A;           // Input to the NOT gate
+    wire Y;          // Output from the NOT gate
+
+    // Instantiate the NOT gate
+    NOT_Gate not1 (
+        .A(A),
+        .Y(Y)
+    );
+
+    // Test procedure
+    initial begin
+        // Display the results
+        $monitor("A=%b Y=%b", A, Y);
+
+        // Test cases
+        A = 0; #10;  // Test with input 0
+        A = 1; #10;  // Test with input 1
+
+        // Finish simulation
+        $finish;
+    end
+
+endmodule
